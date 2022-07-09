@@ -1,18 +1,27 @@
 // global variables for quiz page
 var timerEl = document.getElementById("time-left");
-var greetingEl = document.getElementById("greet");
-var startEl = document.getElementById("start-btn");
+var greetingEl = document.querySelector("#greeting");
+var startButtonEl = document.getElementById("start-btn");
 var quizEl = document.getElementById("quiz-questions");
 var questionEl = document.getElementById("question");
-var answerEl = doucment.getElementById("answer-buttons");
+var answerEl = document.getElementById("answer-buttons");
+
 
 //timer start settings
 var startTime = 60;
 
+//event listener to start game
+startButtonEl.addEventListener("click", function() {
+    startGame();
+});
+    
+
 //functions main
 
 var startGame = function() {
-    //start button event listener
+    document.getElementById("greet").style.visibility='hidden';
+   
+    
     //hide greeting
     //start question loop
 }
