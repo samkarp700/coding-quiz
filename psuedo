@@ -1,3 +1,5 @@
+Instructions: 
+
 GIVEN I am taking a code quiz
 WHEN I click the start button
 THEN a timer starts and I am presented with a question
@@ -14,23 +16,46 @@ THEN I can save my initials and score
 Outline of page: 
 
 Header: High scores separated by timer
+    var timerEl will start at 60 seconds. 
+    var timerEl will deduct after each wrong answer is selected. 
+    when timerEl reaches zero, alert() user of game over. 
+    after user selects 'ok' in alert(), alert() user of score. 
+    after user selects 'ok' to score, prompt() user to input initals - var initialsEl = input from prompt.
+    initialsEl() will be set to local storage. 
+    var saveScore to capture initials to  to localStorage. 
+    append initialsEl as a list item within the high score section. 
+    
 When the high score link is clicked, the high score page will be open to a new page. 
+    *add page link to "High Score" in header
 
 Body: 
 One container will hold the Greeting and a Start button, then replaced by quiz questions and answer choices. 
+        *hide contents of div using CSS 
 
 When I click the start button, the greeting will be replaced by the first question and the timer will begin. 
+    startBtnEl is clicked (eventlistener), the greeting will be hidden. 
+    startGame function will trigger after button and then start the questionEl loop 
+    when the questionEl loop begins, the timerEl will begin deducting 1 sec at a time. 
+    each answerBtnEl click will trigger the right or wrong status. 
 
-When an answer choice is selected, the user will be notified that the answer is either Right or Wrong. 
-If the answer is right, a new question will appear. 
+When an answer choice is selected (selectAnswer), the user will be notified that the answer is either Right or Wrong. 
+    when the correct answer is selected, a responseEl will appear styled green for correct, red for wrong. 
+    after the responseEl appears, a new question will replace the previous. 
+
 Each correct answer will increase the score by 10 points. 
+    var scoreEl will increase after each 'correct' answer selected. 
 
 If the answer is wrong, the timer will deduct 5 seconds. 
+    timerEl will deduct by 5 seconds for each 'false' answer. 
+
 If the answer is wrong, the score will not change. 
 After the user is notified of the incorrect answer, a new question will appear. 
 
 When all questions are answered, the timer will stop and the game is over. 
+    timerEl = 0, alert() user of Game Over. 
 When the game is over, a score alert will appear. 
-Once score is confirmed, a new prompt will appear requesting user's initials to be saved to the high score page. 
+    when Game Over alert is cleared, A score will appear and prompt user to input initials. 
+    scoreEl will set with initialsEl to local storage. 
 
 All scores will be saved to the high score page. 
+    when High Score page is selected, the scoreEl + initialsEl will display to the section as an appended list item.
