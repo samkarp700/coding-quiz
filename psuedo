@@ -1,0 +1,36 @@
+GIVEN I am taking a code quiz
+WHEN I click the start button
+THEN a timer starts and I am presented with a question
+WHEN I answer a question
+THEN I am presented with another question
+WHEN I answer a question incorrectly
+THEN time is subtracted from the clock
+WHEN all questions are answered or the timer reaches 0
+THEN the game is over
+WHEN the game is over
+THEN I can save my initials and score
+
+
+Outline of page: 
+
+Header: High scores separated by timer
+When the high score link is clicked, the high score page will be open to a new page. 
+
+Body: 
+One container will hold the Greeting and a Start button, then replaced by quiz questions and answer choices. 
+
+When I click the start button, the greeting will be replaced by the first question and the timer will begin. 
+
+When an answer choice is selected, the user will be notified that the answer is either Right or Wrong. 
+If the answer is right, a new question will appear. 
+Each correct answer will increase the score by 10 points. 
+
+If the answer is wrong, the timer will deduct 5 seconds. 
+If the answer is wrong, the score will not change. 
+After the user is notified of the incorrect answer, a new question will appear. 
+
+When all questions are answered, the timer will stop and the game is over. 
+When the game is over, a score alert will appear. 
+Once score is confirmed, a new prompt will appear requesting user's initials to be saved to the high score page. 
+
+All scores will be saved to the high score page. 
