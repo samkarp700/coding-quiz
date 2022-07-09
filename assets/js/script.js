@@ -19,15 +19,18 @@ startButtonEl.addEventListener("click", function() {
 //functions main
 
 var startGame = function() {
+    //hide start and greeting
     document.getElementById("greet").style.visibility='hidden';
-   
-    
-    //hide greeting
+   document.getElementById("start-btn").style.visibility='hidden';
+   console.log("questions begin");
+   //timer begins
+
+
     //start question loop
 }
 
 var startTime = function () {
-    //timer begins
+    //timer function
 }
 
 var setQuestion = function () {
@@ -49,3 +52,34 @@ var saveHighScore = function () {
 
 //question and answer array for question loop
 
+var questionAnswerEl = [
+    {
+        question: "In the following array, who is at index 3? ['Jorge', 'Robert', 'Joe', 'Dexter', 'Lincoln']",
+        answers: ["Dexter", "Lincoln", "Jorge", "Joe"],
+        correct: "Dexter"
+    }, 
+
+    {
+        question: "Inside which HTML element do we put JavaScript?", 
+        answers:["<javascript>", "<script>", "<scripting", "<js>"],
+        correct: "<script>"
+    },
+
+    {
+        question: "Which of the following is used to increase or decrease the boldness of a text?",
+        answer: ["font-style", "font-weight", "font-variant", "font-family"],
+        correct: "font-weight"
+    },
+
+    {
+        question: "How do you display 'Hello World' in an alert box?",
+        answer: ["msgBox('Hello World)'", "msg('Hello World')", "alertBox('Hello World')", "alert('Hello World')"],
+        correct: "alert('Hello World')"
+    },
+
+    {
+        question: "How do you add comments in a JavaScript file?",
+        answer: ["<!--Comments-->", "~Comment~", "//Comment", "'Comment'"],
+        correct: "//Comment"
+    }
+];
