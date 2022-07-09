@@ -64,7 +64,36 @@ body {
     transform: scale(1.2);
     
 }
+.start-button {
+    font-size: medium;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.btn {
+    background-color: white;
+    border: 3px solid var(--secondary);
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: black;
+    outline: none;
+    font-size: x-large;
+}
+
+.choice-btn {
+    display: inline-grid;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn:hover {
+    cursor: pointer;
+    border-color: black;
+    transform: scale(1.2);
+}
 
 .hide {
     
