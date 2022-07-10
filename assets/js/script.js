@@ -5,6 +5,7 @@ var startButtonEl = document.getElementById("start-btn");
 var quizEl = document.getElementById("quiz-questions");
 var questionEl = document.getElementById("question");
 var answerEl = document.querySelector("#choice-btn");
+var endGameEl = document.getElementById("game-over");
 
 //answer buttons
 var answerA = document.querySelector(".btn-1");
@@ -14,6 +15,9 @@ var answerD = document.querySelector(".btn-4");
 
 //timer start settings
 var startTime = 60;
+var score = timeLeft;
+var timeLeft = "";
+
 
 //event listener to start game
 startButtonEl.addEventListener("click", function() {
@@ -47,13 +51,13 @@ var startTimer = function () {
     }
     if (time === 0) {
         clearInterval(timer);
-      
-      
+        document.getElementById("status").innerHTML="You are out of time!"
+        endGame();
     }
-    //alert out of time
-    // document.getElementById("status").innerHTML="You are out of time!"
 
 }
+
+
 
 function showQuestion() {
         //questions to replace quiz container html
@@ -63,16 +67,6 @@ function showQuestion() {
         answerB.textContent=questionAnswer[nextQuestionIndex].answers[1];
         answerC.textContent=questionAnswer[nextQuestionIndex].answers[2];
         answerD.textContent=questionAnswer[nextQuestionIndex].answers[3];
-
-    // questionEl.classList.remove("hide");
-    // //new question and answer choices
-    // for (var i = 0; i < questionAnswer.length; i++) {
-
-    // }
-    // var addQuestion = document.querySelector("#question");
-    // addQuestion.textContent = questionAnswer.question;
-    // addQuestion.className = "container";
-
 };
 
  function answerStatus (answerChoice) {
@@ -82,14 +76,25 @@ function showQuestion() {
     var correctChoice = questionAnswer[nextQuestionIndex].correct;
     if (answerChoice === correctChoice) {
         document.getElementById("status").innerHTML="Correct!";
+        time+=5
 
     }
     else {
-        document.getElementById("status").innerHTML="Wrong!";
+       document.getElementById("status").innerHTML="Wrong!";
         time-=5
         document.getElementById("time-left").innerHTML=time;
     }
-}
+
+    //set next question in array
+    if (nextQuestionIndex ===questionAnswer.length -1) {
+        //end quiz;
+        endGame();
+    }
+    else {
+        nextQuestionIndex++;
+        showQuestion();
+    }
+};
 
 // click event for each button answer - loop to next question in array. 
 answerA.addEventListener("click", function() {
@@ -107,18 +112,27 @@ answerD.addEventListener("click", function() {
 })
 
 
+
+
 var endGame = function () {
     //timer runs out or last question
     //prompt to save high score
+    quizEl.classList.add("hide");
+    endGameEl.classList.remove("hide");
+    clearInterval(timer);
+    //timer = score
+    var scoreEl = document.getElementById("your-score");
+    scoreEl.textContent = time;
+
 }
 
 var saveHighScore = function () {
     // set initials and score to local storage
 }
 
+
+
 //question and answer array for question loop
-
-
 var questionAnswer = [
     {
         question: "In the following array, who is at index 3? ['Jorge', 'Robert', 'Dexter', 'Lincoln']",
