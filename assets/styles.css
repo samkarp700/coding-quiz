@@ -41,9 +41,6 @@ body {
     margin-left: 20px;
 }
 
-.high-scores li {
-    display: none;
-}
 
 .container {
     background-color: var(--tertiary);
