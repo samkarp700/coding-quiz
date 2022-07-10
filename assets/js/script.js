@@ -6,6 +6,7 @@ var quizEl = document.getElementById("quiz-questions");
 var questionEl = document.getElementById("question");
 var answerEl = document.querySelector("#choice-btn");
 var endGameEl = document.getElementById("game-over");
+var statusEl = document.getElementById("status");
 
 //answer buttons
 var answerA = document.querySelector(".btn-1");
@@ -77,7 +78,7 @@ function showQuestion() {
     if (answerChoice === correctChoice) {
         document.getElementById("status").innerHTML="Correct!";
         time+=5
-
+        
     }
     else {
        document.getElementById("status").innerHTML="Wrong!";
@@ -85,7 +86,7 @@ function showQuestion() {
         document.getElementById("time-left").innerHTML=time;
     }
 
-    //set next question in array
+    //set next question in array or end
     if (nextQuestionIndex ===questionAnswer.length -1) {
         //end quiz;
         endGame();
@@ -93,6 +94,7 @@ function showQuestion() {
     else {
         nextQuestionIndex++;
         showQuestion();
+        
     }
 };
 
@@ -112,8 +114,6 @@ answerD.addEventListener("click", function() {
 })
 
 
-
-
 var endGame = function () {
     //timer runs out or last question
     //prompt to save high score
@@ -123,13 +123,14 @@ var endGame = function () {
     //timer = score
     var scoreEl = document.getElementById("your-score");
     scoreEl.textContent = time;
+    localStorage.getItem("time");
 
 }
 
-var saveHighScore = function () {
+var saveScore = function () {
     // set initials and score to local storage
-}
 
+}
 
 
 //question and answer array for question loop
