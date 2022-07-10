@@ -146,10 +146,11 @@ var saveScore = function () {
         clearInterval(getInit);
         
     });
-    
-    
+    //go to high score page
+    window.location.href = "scores.html"
    
 }
+
 
 
 //question and answer array for question loop
