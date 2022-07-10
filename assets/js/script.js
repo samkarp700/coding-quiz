@@ -24,13 +24,26 @@ var startGame = function() {
    document.getElementById("start-btn").style.visibility='hidden';
    console.log("questions begin");
    //timer begins
-
-
+   time = startTime;
+   timer = setInterval(startTimer, 1000);
+    console.log("timer began");
     //start question loop
 }
 
-var startTime = function () {
+var startTimer = function () {
     //timer function
+    if (time>0) {
+        time-=1;
+        document.getElementById("time-left").innerHTML=time;
+    }
+    else {
+        clearInterval(startTime);
+
+    }
+    if (time === 0) {
+        clearInterval(timer);
+        console.log("out of time!");
+    }
 }
 
 var setQuestion = function () {
