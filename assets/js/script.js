@@ -20,6 +20,8 @@ var score = timeLeft;
 var timeLeft = "";
 
 
+
+
 //event listener to start game
 startButtonEl.addEventListener("click", function() {
     startGame();
@@ -114,7 +116,7 @@ answerD.addEventListener("click", function() {
 })
 
 
-var endGame = function () {
+function endGame () {
     //timer runs out or last question
     //prompt to save high score
     quizEl.classList.add("hide");
@@ -123,13 +125,30 @@ var endGame = function () {
     //timer = score
     var scoreEl = document.getElementById("your-score");
     scoreEl.textContent = time;
-    localStorage.getItem("time");
+    saveScore();
 
 }
 
+
 var saveScore = function () {
     // set initials and score to local storage
+    getInit = setInterval(function () {
+        var scoreEl = (document.getElementById("your-score").value=time);
+    scoreEl.textContent = time;
 
+        var playerEl = prompt("Awesome! Please enter your initials to save your score.");
+       
+        var savedScore = {playerEl, scoreEl};
+        var savedNameScore = JSON.parse(localStorage.getItem("nameScoreArr")) || [];
+
+        savedNameScore.push(savedScore);
+        localStorage.setItem('nameScoreArr', JSON.stringify(savedNameScore));
+        clearInterval(getInit);
+        
+    });
+    
+    
+   
 }
 
 
