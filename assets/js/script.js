@@ -7,10 +7,10 @@ var questionEl = document.getElementById("question");
 var answerEl = document.querySelector("#choice-btn");
 
 //answer buttons
-var answerA = document.querySelector("#btn-1");
-var answerB = document.querySelector("#btn-2");
-var answerC = document.querySelector("#btn-3");
-var answerD = document.querySelector("#btn-4");
+var answerA = document.querySelector(".btn-1");
+var answerB = document.querySelector(".btn-2");
+var answerC = document.querySelector(".btn-3");
+var answerD = document.querySelector(".btn-4");
 
 //timer start settings
 var startTime = 60;
@@ -32,7 +32,7 @@ var startGame = function() {
    timer = setInterval(startTimer, 1000);
     //start question loop
     quizEl.classList.remove("hide");
-    setQuestion();
+    showQuestion();
 }
 
 var startTimer = function () {
@@ -48,20 +48,21 @@ var startTimer = function () {
     if (time === 0) {
         clearInterval(timer);
       
+      
     }
     //alert out of time
+    // document.getElementById("status").innerHTML="You are out of time!"
 
 }
 
-function setQuestion() {
-        //call to array of questions
+function showQuestion() {
+        //loop through array of questions
         var nextQuestion = questionAnswer[nextQuestionIndex];
         questionEl.textContent = nextQuestion.question;
-        answerEl.textContent=nextQuestion.answers;
         answerA.textContent=questionAnswer[nextQuestionIndex].answers[0];
-
-
-        console.log(setQuestion);
+        answerB.textContent=questionAnswer[nextQuestionIndex].answers[1];
+        answerC.textContent=questionAnswer[nextQuestionIndex].answers[2];
+        answerD.textContent=questionAnswer[nextQuestionIndex].answers[3];
 
     // questionEl.classList.remove("hide");
     // //new question and answer choices

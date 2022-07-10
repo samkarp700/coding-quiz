@@ -73,7 +73,7 @@ body {
     align-items: center;
 }
 
-.btn {
+.btn, .btn-1, .btn-2, .btn-3, .btn-4{
     background-color: white;
     border: 3px solid var(--secondary);
     border-radius: 5px;
@@ -87,9 +87,10 @@ body {
     display: inline-grid;
     gap: 10px;
     margin: 20px 0;
+   
 }
 
-.btn:hover {
+.btn:hover, .btn-1:hover, .btn-2:hover, .btn-3:hover, .btn-4:hover  {
     cursor: pointer;
     border-color: black;
     transform: scale(1.2);
