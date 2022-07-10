@@ -56,7 +56,7 @@ var startTimer = function () {
 }
 
 function showQuestion() {
-        //loop through array of questions
+        //questions to replace quiz container html
         var nextQuestion = questionAnswer[nextQuestionIndex];
         questionEl.textContent = nextQuestion.question;
         answerA.textContent=questionAnswer[nextQuestionIndex].answers[0];
@@ -75,9 +75,37 @@ function showQuestion() {
 
 };
 
-var answerStatus = function () {
-    //check answer
+ function answerStatus (answerChoice) {
+    //if answer button is clicked, check for 'correct', if true, status appear 'correct'.
+    //else status appear wrong, deduct time, move to next question. 
+
+    var correctChoice = questionAnswer[nextQuestionIndex].correct;
+    if (answerChoice === correctChoice) {
+        document.getElementById("status").innerHTML="Correct!";
+
+    }
+    else {
+        document.getElementById("status").innerHTML="Wrong!";
+        time-=5
+        document.getElementById("time-left").innerHTML=time;
+    }
 }
+
+// click event for each button answer - loop to next question in array. 
+answerA.addEventListener("click", function() {
+    answerStatus(answerA.textContent);
+})
+answerB.addEventListener("click", function() {
+    answerStatus(answerB.textContent);
+})
+    
+answerC.addEventListener("click", function() {
+        answerStatus(answerC.textContent);
+})
+answerD.addEventListener("click", function() {
+            answerStatus(answerA.textContent);
+})
+
 
 var endGame = function () {
     //timer runs out or last question
@@ -93,9 +121,9 @@ var saveHighScore = function () {
 
 var questionAnswer = [
     {
-        question: "In the following array, who is at index 3? ['Jorge', 'Robert', 'Joe', 'Dexter', 'Lincoln']",
-        answers: ["Dexter", "Lincoln", "Jorge", "Joe"],
-        correct: "Dexter"
+        question: "In the following array, who is at index 3? ['Jorge', 'Robert', 'Dexter', 'Lincoln']",
+        answers: ["Dexter", "Lincoln", "Jorge", "Robert"],
+        correct: "Lincoln"
     }, 
 
     {
