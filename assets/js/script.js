@@ -4,8 +4,13 @@ var greetingEl = document.querySelector("#greeting");
 var startButtonEl = document.getElementById("start-btn");
 var quizEl = document.getElementById("quiz-questions");
 var questionEl = document.getElementById("question");
-var answerEl = document.getElementById("answer-buttons");
+var answerEl = document.querySelector("#choice-btn");
 
+//answer buttons
+var answerA = document.querySelector("#btn-1");
+var answerB = document.querySelector("#btn-2");
+var answerC = document.querySelector("#btn-3");
+var answerD = document.querySelector("#btn-4");
 
 //timer start settings
 var startTime = 60;
@@ -17,17 +22,17 @@ startButtonEl.addEventListener("click", function() {
     
 
 //functions main
-
+var nextQuestionIndex = 0;
 var startGame = function() {
     //hide start and greeting
     document.getElementById("greet").style.visibility='hidden';
    document.getElementById("start-btn").style.visibility='hidden';
-   console.log("questions begin");
    //timer begins
    time = startTime;
    timer = setInterval(startTimer, 1000);
-    console.log("timer began");
     //start question loop
+    quizEl.classList.remove("hide");
+    setQuestion();
 }
 
 var startTimer = function () {
@@ -42,13 +47,32 @@ var startTimer = function () {
     }
     if (time === 0) {
         clearInterval(timer);
-        console.log("out of time!");
+      
     }
+    //alert out of time
+
 }
 
-var setQuestion = function () {
-    //new question and answer choices
-}
+function setQuestion() {
+        //call to array of questions
+        var nextQuestion = questionAnswer[nextQuestionIndex];
+        questionEl.textContent = nextQuestion.question;
+        answerEl.textContent=nextQuestion.answers;
+        answerA.textContent=questionAnswer[nextQuestionIndex].answers[0];
+
+
+        console.log(setQuestion);
+
+    // questionEl.classList.remove("hide");
+    // //new question and answer choices
+    // for (var i = 0; i < questionAnswer.length; i++) {
+
+    // }
+    // var addQuestion = document.querySelector("#question");
+    // addQuestion.textContent = questionAnswer.question;
+    // addQuestion.className = "container";
+
+};
 
 var answerStatus = function () {
     //check answer
@@ -65,7 +89,8 @@ var saveHighScore = function () {
 
 //question and answer array for question loop
 
-var questionAnswerEl = [
+
+var questionAnswer = [
     {
         question: "In the following array, who is at index 3? ['Jorge', 'Robert', 'Joe', 'Dexter', 'Lincoln']",
         answers: ["Dexter", "Lincoln", "Jorge", "Joe"],
@@ -80,19 +105,19 @@ var questionAnswerEl = [
 
     {
         question: "Which of the following is used to increase or decrease the boldness of a text?",
-        answer: ["font-style", "font-weight", "font-variant", "font-family"],
+        answers: ["font-style", "font-weight", "font-variant", "font-family"],
         correct: "font-weight"
     },
 
     {
         question: "How do you display 'Hello World' in an alert box?",
-        answer: ["msgBox('Hello World)'", "msg('Hello World')", "alertBox('Hello World')", "alert('Hello World')"],
+        answers: ["msgBox('Hello World)'", "msg('Hello World')", "alertBox('Hello World')", "alert('Hello World')"],
         correct: "alert('Hello World')"
     },
 
     {
         question: "How do you add comments in a JavaScript file?",
-        answer: ["<!--Comments-->", "~Comment~", "//Comment", "'Comment'"],
+        answers: ["<!--Comments-->", "~Comment~", "//Comment", "'Comment'"],
         correct: "//Comment"
     }
 ];
