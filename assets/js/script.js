@@ -139,10 +139,10 @@ var saveScore = function () {
         var playerEl = prompt("Awesome! Please enter your initials to save your score.");
        
         var savedScore = {playerEl, scoreEl};
-        var savedNameScore = JSON.parse(localStorage.getItem("nameScoreArr")) || [];
+        var savedNameScore = JSON.parse(localStorage.getItem("savedScore")) || [];
 
         savedNameScore.push(savedScore);
-        localStorage.setItem('nameScoreArr', JSON.stringify(savedNameScore));
+        localStorage.setItem('savedScore', JSON.stringify(savedNameScore));
         clearInterval(getInit);
         
     });
