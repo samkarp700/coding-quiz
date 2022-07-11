@@ -18,4 +18,5 @@ HTMl, CSS, and JavaScript.
 [Test your Knowledge](https://samkarp700.github.io/coding-quiz/)
 
 # Screenshot of the quiz site
-![quizimg]
+![quizimg]![Screen Shot 2022-07-10 at 8 47 04 PM](https://user-images.githubusercontent.com/105761973/178169456-d47dacc3-457b-4450-b9f3-2cc8edd0fe52.png)
+
